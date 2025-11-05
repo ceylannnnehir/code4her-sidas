@@ -361,14 +361,34 @@ def detect_city(soru):
 def clean_context(text):
     """Context'i temizle - Optimize"""
     text = re.sub(r'\[cite[^\]]*\]|\[cite_start\]|\[cite_end\]', '', text)
+
+    # Belge yapısı başlıklarını temizle (satır başında veya ortasında)
+    text = re.sub(r'--\s*Konu:[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'##\s*Soru:[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Soru:[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'##\s*Cevap:\s*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Cevap:\s*', '', text, flags=re.IGNORECASE)
+
+    # Markdown formatlarını temizle
+    text = re.sub(r'#{1,6}\s*', '', text)  # Tüm # başlıkları
+    text = re.sub(r'\*\*', '', text)  # Bold işaretleri
+
     text = re.sub(r'\s+', ' ', text)
     return text.strip()
 
 
 def extract_answer(text):
     """Gemini cevabını ayıkla - Optimize"""
-    # Başlıkları temizle
-    text = re.sub(r'^#+\s+', '', text, flags=re.MULTILINE)
+    # Belge yapısı başlıklarını temizle (satır başında veya ortasında)
+    text = re.sub(r'--\s*Konu:[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'##\s*Soru:[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Soru:[^\n]*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'##\s*Cevap:\s*', '', text, flags=re.IGNORECASE)
+    text = re.sub(r'Cevap:\s*', '', text, flags=re.IGNORECASE)
+
+    # Markdown formatlarını temizle
+    text = re.sub(r'#{1,6}\s*', '', text)  # Tüm # başlıkları
+    text = re.sub(r'\*\*', '', text)  # Bold işaretleri
 
     # Fazla satır atlamalarını temizle
     text = re.sub(r'\n{3,}', '\n\n', text)
@@ -562,11 +582,15 @@ def rag(soru, verbose=False):
         cevap = extract_answer(response.text)
 
         if len(cevap) < 20:
-            cevap = context[:300]
+            # Kaynak başlıklarını temizle
+            context_clean = re.sub(r'\[Kaynak\s+\d+\]\s*\n?', '', context)
+            cevap = context_clean[:300].strip()
 
     except Exception as e:
         print(f"Generation hatası: {e}")
-        cevap = context[:300]
+        # Kaynak başlıklarını temizle
+        context_clean = re.sub(r'\[Kaynak\s+\d+\]\s*\n?', '', context)
+        cevap = context_clean[:300].strip()
 
     kaynaklar = format_sources(docs)
 

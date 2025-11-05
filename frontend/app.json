@@ -1,0 +1,41 @@
+{
+  "expo": {
+    "name": "ŞİDAS",
+    "slug": "sidas",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F0F9FF"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sidas.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#F0F9FF"
+      },
+      "package": "com.sidas.app",
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      "softwareKeyboardLayoutMode": "pan"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "08760b9e-91f6-46c2-a0fc-05a853c9cc46"
+      }
+    },
+    "plugins": [
+      "expo-asset"
+    ]
+  }

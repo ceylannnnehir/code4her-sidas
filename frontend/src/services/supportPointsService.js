@@ -1,0 +1,88 @@
+/**
+ * Varsayılan (örnek) destek noktaları - Firebase bağlantısı yoksa veya hata durumunda
+ */
+export const defaultSupportPoints = [
+  // İstanbul
+  {
+    id: '1',
+    name: 'Kadıköy İlçe Emniyet Müdürlüğü',
+    type: 'Karakol',
+    city: 'İstanbul',
+    address: 'Caferağa, General Asım Gündüz Cd. No:1, 34710 Kadıköy/İstanbul',
+    phone: '(0216) 345 55 55',
+    position: { lat: 40.9897, lng: 29.0250 },
+  },
+  {
+    id: '2',
+    name: 'Haydarpaşa Numune Eğitim ve Araştırma Hastanesi',
+    type: 'Hastane',
+    city: 'İstanbul',
+    address: 'Tıbbiye Cd. No:23, 34668 Üsküdar/İstanbul',
+    phone: '(0216) 542 32 32',
+    position: { lat: 41.0006, lng: 29.0195 },
+  },
+  {
+    id: '3',
+    name: 'İstanbul ŞÖNİM',
+    type: 'ŞÖNİM',
+    city: 'İstanbul',
+    address: 'Aksaray, Küçük Langa Cd. No:63, 34096 Fatih/İstanbul',
+    phone: '(0212) 589 62 76',
+    position: { lat: 41.0055, lng: 28.9540 },
+  },
+  {
+    id: '4',
+    name: 'İstanbul Barosu',
+    type: 'Baro',
+    city: 'İstanbul',
+    address: 'Şahkulu, İstiklal Cd. No:1, 34421 Beyoğlu/İstanbul',
+    phone: '(0212) 251 63 25',
+    position: { lat: 41.0331, lng: 28.9789 },
+  },
+  // Niğde
+  {
+    id: '5',
+    name: 'Niğde İl Emniyet Müdürlüğü',
+    type: 'Karakol',
+    city: 'Niğde',
+    address: 'Eskisaray, Cumhuriyet Cd. No:2, 51100 Merkez/Niğde',
+    phone: '(0388) 232 10 00',
+    position: { lat: 37.9744, lng: 34.6857 },
+  },
+  {
+    id: '6',
+    name: 'Niğde Ömer Halisdemir Üniversitesi Eğitim ve Araştırma Hastanesi',
+    type: 'Hastane',
+    city: 'Niğde',
+    address: 'Yeni Mahalle, Çiftlik Caddesi, 51100 Merkez/Niğde',
+    phone: '(0388) 225 25 25',
+    position: { lat: 37.9850, lng: 34.6950 },
+  },
+  {
+    id: '7',
+    name: 'Niğde ŞÖNİM',
+    type: 'ŞÖNİM',
+    city: 'Niğde',
+    address: 'Kayabaşı, Aile ve Sosyal Hizmetler İl Müdürlüğü, 51100 Merkez/Niğde',
+    phone: '(0388) 232 51 51',
+    position: { lat: 37.9667, lng: 34.6833 },
+  },
+  {
+    id: '8',
+    name: 'Niğde Barosu',
+    type: 'Baro',
+    city: 'Niğde',
+    address: 'Efendibey, Adalet Sarayı, 51100 Merkez/Niğde',
+    phone: '(0388) 232 13 85',
+    position: { lat: 37.9700, lng: 34.6800 },
+  },
+  {
+    id: '9',
+    name: 'Niğde Devlet Hastanesi',
+    type: 'Hastane',
+    city: 'Niğde',
+    address: 'Kayabaşı, Hastane Caddesi, 51100 Merkez/Niğde',
+    phone: '(0388) 232 30 00',
+    position: { lat: 37.9600, lng: 34.6750 },
+  },
+];
